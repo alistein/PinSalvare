@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PinSalvareBot": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 443",
+      "launchBrowser": false
+    }
+  }
+}
