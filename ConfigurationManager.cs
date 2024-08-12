@@ -18,7 +18,7 @@ public static class ConfigurationManager
 			?? throw new ArgumentNullException("ApiHeaderHost"),
 			ApiHeaderKey = Environment.GetEnvironmentVariable("ApiHeaderKey", EnvironmentVariableTarget.Process)
 			?? throw new ArgumentNullException("ApiHeaderKey"),
-			AllowedUsers = Environment.GetEnvironmentVariable("AllowedUsers")?.Split(",").ToList()
+			AllowedUsers = Environment.GetEnvironmentVariable("AllowedUsers")?.Split(",").Select(s => s.Trim()).ToList()
 			?? throw new ArgumentNullException("AllowedUsers")
 		};
 

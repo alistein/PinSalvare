@@ -28,7 +28,10 @@ namespace PinSalvareBot
 
             try
             {
+
                 var configurationModel = ConfigurationManager.Configure();
+
+                _logger.LogInformation(Environment.GetEnvironmentVariable("AllowedUsers"));
 
                 var request = await new StreamReader(req.Body).ReadToEndAsync();
 

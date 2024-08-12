@@ -24,13 +24,13 @@ public static class TelegramMethods
 
         if (update.Type == UpdateType.Message && !string.IsNullOrEmpty(update.Message?.Text))
         {
-            var userId = update.Message.From?.Id;
+            var userId = update.Message.From?.Id.ToString().Trim();
 
             string messageText = update.Message.Text;
 
             long chatId = update.Message.Chat.Id;
 
-            if (userId is null || !configurationModel.AllowedUsers!.Contains(userId.Value.ToString()))
+            if (userId == null || !configurationModel.AllowedUsers!.Contains(userId))
             {
                 await botClient.SendTextMessageAsync(chatId, "You are not allowed!", cancellationToken: cancellationToken);
 
